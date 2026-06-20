@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AttiDash | Local Delivery Requests</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="AttiDash home">
+        <span class="brand-mark">A</span>
+        <span>AttiDash</span>
+      </a>
+      <div class="nav-links">
+        <a href="#how-it-works">How it works</a>
+        <a href="#order">Order</a>
+        <button class="owner-link" id="ownerOpen" type="button">Owner</button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Fast local food requests</p>
+        <h1>Fresh meals delivered with a neighborhood touch.</h1>
+        <p class="hero-text">
+          AttiDash helps customers request their favorite meals from nearby restaurants with a clean,
+          simple ordering experience built for speed and convenience.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#order">Place an order</a>
+          <a class="button secondary" href="#how-it-works">Learn more</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Featured delivery preview">
+        <div class="card-topline">Today’s featured request</div>
+        <h2>Hot wings + fries</h2>
+        <p>Average pickup estimate: <strong>18 minutes</strong></p>
+        <div class="status-pill">Ready for requests</div>
+      </aside>
+    </section>
+
+    <section class="info-section" id="how-it-works">
+      <div class="section-heading">
+        <p class="eyebrow">How it works</p>
+        <h2>Simple ordering from start to send.</h2>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span>1</span>
+          <h3>Tell us your name</h3>
+          <p>Customers enter their name so the owner can quickly identify each request.</p>
+        </article>
+        <article class="feature-card">
+          <span>2</span>
+          <h3>Describe the food</h3>
+          <p>Customers write what they want, including restaurant names, meals, sides, or special notes.</p>
+        </article>
+        <article class="feature-card">
+          <span>3</span>
+          <h3>Send the request</h3>
+          <p>The order appears in the owner dashboard demo so requests can be reviewed in one place.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="details-section">
+      <div>
+        <p class="eyebrow">Built for trust</p>
+        <h2>A professional first step for your delivery brand.</h2>
+      </div>
+      <p>
+        This starter site gives your company a polished public page, a clear order form, and a private
+        owner-view demo. Later, it can connect to real accounts, payments, live driver updates, and text
+        message notifications.
+      </p>
+    </section>
+
+    <section class="order-section" id="order">
+      <div class="order-copy">
+        <p class="eyebrow">Ready to eat?</p>
+        <h2>Send a food request</h2>
+        <p>Enter your details below. This demo saves requests in this browser for the owner dashboard.</p>
+      </div>
+      <form class="order-form" id="orderForm">
+        <label for="customerName">Your name</label>
+        <input id="customerName" name="customerName" type="text" placeholder="Example: Jordan Smith" required />
+
+        <label for="foodRequest">What do you want?</label>
+        <textarea id="foodRequest" name="foodRequest" rows="5" placeholder="Example: 2 cheeseburgers, fries, and a lemonade from Main Street Grill" required></textarea>
+
+        <button class="button primary full" type="submit">Send request</button>
+        <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <section class="owner-panel" id="ownerPanel" aria-hidden="true">
+    <div class="owner-modal" role="dialog" aria-modal="true" aria-labelledby="ownerTitle">
+      <button class="close-button" id="ownerClose" type="button" aria-label="Close owner dashboard">×</button>
+      <div class="owner-login" id="ownerLogin">
+        <p class="eyebrow">Owner only</p>
+        <h2 id="ownerTitle">Owner dashboard</h2>
+        <p>Enter the demo owner code to view incoming food requests.</p>
+        <label for="ownerCode">Owner code</label>
+        <input id="ownerCode" type="password" placeholder="Try: owner123" />
+        <button class="button primary full" id="ownerUnlock" type="button">Open dashboard</button>
+        <p class="form-message" id="ownerMessage" role="status" aria-live="polite"></p>
+      </div>
+      <div class="dashboard hidden" id="dashboard">
+        <div class="dashboard-header">
+          <div>
+            <p class="eyebrow">Live request board</p>
+            <h2>Food requests</h2>
+          </div>
+          <button class="button secondary" id="clearOrders" type="button">Clear demo requests</button>
+        </div>
+        <div class="request-list" id="requestList"></div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
