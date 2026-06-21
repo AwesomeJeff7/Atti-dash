@@ -8,21 +8,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
-  <center>
 </head>
 <body>
   <div class="page-glow glow-one"></div>
   <div class="page-glow glow-two"></div>
 
   <header class="site-header">
-    <body bgcolor="#757575">
-      <font color="white">
     <nav class="nav" aria-label="Primary navigation">
-     attidash
+      <a class="brand" href="#top" aria-label="AttiDash home">
+        <span class="brand-mark">A</span>
+        <span>AttiDash</span>
       </a>
       <div class="nav-links">
-        <a href="owner.html">Order</a>
-        <button class="owner-link" id="ownerOpen" type="button">Owner</button>
+        <a href="#how-it-works">How it works</a>
+        <a href="#order">Order</a>
+        <a href="owner.html">Owner</a>
       </div>
     </nav>
   </header>
@@ -33,38 +33,50 @@
         <p class="eyebrow pill-eyebrow">Fast local food requests</p>
         <h1>Food delivery requests that feel premium from the first tap.</h1>
         <p class="hero-text">
-          AttiDash gives customers a smooth way to request meals
+          AttiDash gives customers a smooth way to request meals and understand pricing before sending an order.
         </p>
         <div class="hero-actions">
+          <a class="button primary" href="#order">Start an order</a>
+          <a class="button secondary" href="owner.html">Owner dashboard</a>
         </div>
       </div>
+
       <div class="showcase" aria-label="Delivery app preview">
         <div class="floating-card card-left">
+          <span class="emoji">🍔</span>
+          <div>
+            <strong>New request</strong>
+            <p>Double burger meal</p>
+          </div>
         </div>
         <div class="phone-card">
           <div class="phone-topbar"></div>
-          <p class="card-topline">How we calculate cost:</p>
-          <h2>first we take how much the meal costs,</h2>
+          <p class="card-topline">How we calculate cost</p>
+          <h2>Meal price + 30%</h2>
           <div class="route-card">
-            <span>Pickup</span>
-            <strong>Then we add 30% (Lower then doordash!)</strong>
+            <span>Simple pricing</span>
+            <strong>First we take how much the meal costs.</strong>
           </div>
           <div class="route-card soft">
-            <span>for example</span>
-            <strong>10$ + 13$</strong>
+            <span>Then we add</span>
+            <strong>30% — lower than DoorDash.</strong>
           </div>
-          <div class="status-pill">we are ready for requests</div>
+          <div class="status-pill">Ready for requests</div>
         </div>
         <div class="floating-card card-right">
+          <span class="emoji">⚡</span>
           <div>
-            <p>Orders update instantly so you will have your food in no time!</p>
+            <strong>Instant updates</strong>
+            <p>Orders update fast so food can get moving.</p>
           </div>
         </div>
       </div>
     </section>
+
     <section class="info-section" id="how-it-works">
       <div class="section-heading centered">
         <p class="eyebrow">How it works</p>
+        <h2>Quick requests, clear details, and a private owner view.</h2>
       </div>
       <div class="feature-grid">
         <article class="feature-card">
@@ -89,7 +101,7 @@
       <p class="eyebrow">Built for trust</p>
       <h2>A polished foundation for your delivery brand.</h2>
       <p>
-        This starter site now feels more like a modern delivery app: centered content, premium cards,
+        This starter site feels like a modern delivery app: centered content, premium cards,
         animated-feeling layers, clean spacing, and a focused order experience.
       </p>
     </section>
@@ -115,32 +127,6 @@
     </section>
   </main>
 
-  <section class="owner-panel" id="ownerPanel" aria-hidden="true">
-    <div class="owner-modal" role="dialog" aria-modal="true" aria-labelledby="ownerTitle">
-      <button class="close-button" id="ownerClose" type="button" aria-label="Close owner dashboard">×</button>
-      <div class="owner-login" id="ownerLogin">
-        <p class="eyebrow">Owner only</p>
-        <h2 id="ownerTitle">Owner dashboard</h2>
-        <p>Enter the demo owner code to view incoming food requests.</p>
-        <label for="ownerCode">Owner code</label>
-        <input id="ownerCode" type="password" placeholder="Try: owner123" />
-        <button class="button primary full" id="ownerUnlock" type="button">Open dashboard</button>
-        <p class="form-message" id="ownerMessage" role="status" aria-live="polite"></p>
-      </div>
-      <div class="dashboard hidden" id="dashboard">
-        <div class="dashboard-header">
-          <div>
-            <p class="eyebrow">Live request board</p>
-            <h2>Food requests</h2>
-          </div>
-          <button class="button secondary" id="clearOrders" type="button">Clear demo requests</button>
-        </div>
-        <div class="request-list" id="requestList"></div>
-      </div>
-    </div>
-  </section>
-
   <script src="script.js"></script>
 </body>
-  </center>
 </html>
