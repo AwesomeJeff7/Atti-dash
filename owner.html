@@ -1,25 +1,57 @@
-hi
-  <section class="owner-panel" id="ownerPanel" aria-hidden="true">
-    <div class="owner-modal" role="dialog" aria-modal="true" aria-labelledby="ownerTitle">
-      <button class="close-button" id="ownerClose" type="button" aria-label="Close owner dashboard">×</button>
-      <div class="owner-login" id="ownerLogin">
-        <p class="eyebrow">Owner only</p>
-        <h2 id="ownerTitle">Owner dashboard</h2>
-        <p>Enter the demo owner code to view incoming food requests.</p>
-        <label for="ownerCode">Owner code</label>
-        <input id="ownerCode" type="password" placeholder="Try: owner123" />
-        <button class="button primary full" id="ownerUnlock" type="button">Open dashboard</button>
-        <p class="form-message" id="ownerMessage" role="status" aria-live="polite"></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Owner Dashboard | AttiDash</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="owner-page">
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Owner navigation">
+      <a class="brand" href="index.html" aria-label="AttiDash home">
+        <span class="brand-mark">A</span>
+        <span>AttiDash</span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#order">Order page</a>
+        <a href="index.html">Home</a>
       </div>
-      <div class="dashboard hidden" id="dashboard">
-        <div class="dashboard-header">
-          <div>
-            <p class="eyebrow">Live request board</p>
-            <h2>Food requests</h2>
-          </div>
-          <button class="button secondary" id="clearOrders" type="button">Clear demo requests</button>
+    </nav>
+  </header>
+
+  <main class="owner-page-main">
+    <section class="owner-panel owner-panel-page" id="ownerPanel" aria-hidden="false">
+      <div class="owner-modal" role="dialog" aria-modal="false" aria-labelledby="ownerTitle">
+        <div class="owner-login" id="ownerLogin">
+          <p class="eyebrow">Owner only</p>
+          <h1 id="ownerTitle">Owner dashboard</h1>
+          <p>Enter the demo owner code to view incoming food requests.</p>
+          <label for="ownerCode">Owner code</label>
+          <input id="ownerCode" type="password" placeholder="Try: owner123" />
+          <button class="button primary full" id="ownerUnlock" type="button">Open dashboard</button>
+          <p class="form-message" id="ownerMessage" role="status" aria-live="polite"></p>
         </div>
-        <div class="request-list" id="requestList"></div>
+        <div class="dashboard hidden" id="dashboard">
+          <div class="dashboard-header">
+            <div>
+              <p class="eyebrow">Live request board</p>
+              <h1>Food requests</h1>
+            </div>
+            <button class="button secondary" id="clearOrders" type="button">Clear demo requests</button>
+          </div>
+          <div class="request-list" id="requestList"></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
