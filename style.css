@@ -327,3 +327,27 @@ input:focus, textarea:focus { border-color: var(--brand); box-shadow: 0 0 0 5px 
   .stats-strip div { padding: 22px; }
   .info-section, .details-section, .order-section { padding: 78px 0; }
 }
+
+.owner-page-main {
+  width: min(920px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 76px 0 110px;
+}
+
+.owner-panel-page {
+  position: static;
+  display: grid;
+  min-height: auto;
+  padding: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+.owner-panel-page .owner-modal {
+  width: 100%;
+}
+
+.owner-panel-page h1 {
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  letter-spacing: -0.07em;
+}
