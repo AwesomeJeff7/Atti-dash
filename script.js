@@ -29,6 +29,10 @@ function escapeHTML(value) {
 }
 
 function renderOrders() {
+  if (!requestList) {
+    return;
+  }
+
   const orders = getOrders();
 
   if (orders.length === 0) {
@@ -42,7 +46,7 @@ function renderOrders() {
         <article class="request-card">
           <strong>${escapeHTML(order.name)}</strong>
           <div>${escapeHTML(order.request)}</div>
-          <div class="request-time">Sent ${order.time}</div>
+          <div class="request-time">Sent ${escapeHTML(order.time)}</div>
         </article>
       `
     )
@@ -50,59 +54,81 @@ function renderOrders() {
 }
 
 function openOwnerPanel() {
+  if (!ownerPanel) {
+    window.location.href = "owner.html";
+    return;
+  }
+
   ownerPanel.classList.add("open");
   ownerPanel.setAttribute("aria-hidden", "false");
-  ownerCode.focus();
+  ownerCode?.focus();
 }
 
 function closeOwnerPanel() {
+  if (!ownerPanel) {
+    return;
+  }
+
   ownerPanel.classList.remove("open");
   ownerPanel.setAttribute("aria-hidden", "true");
-  ownerMessage.textContent = "";
+
+  if (ownerMessage) {
+    ownerMessage.textContent = "";
+  }
 }
 
-orderForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+if (orderForm) {
+  orderForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  const formData = new FormData(orderForm);
-  const order = {
-    name: formData.get("customerName").trim(),
-    request: formData.get("foodRequest").trim(),
-    time: new Date().toLocaleString([], {
-      month: "short",
-      day: "numeric",
-      hour: "numeric",
-      minute: "2-digit",
-    }),
-  };
+    const formData = new FormData(orderForm);
+    const order = {
+      name: formData.get("customerName").trim(),
+      request: formData.get("foodRequest").trim(),
+      time: new Date().toLocaleString([], {
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit",
+      }),
+    };
 
-  const orders = [order, ...getOrders()];
-  saveOrders(orders);
-  orderForm.reset();
-  formMessage.textContent = "Request sent! The owner dashboard has been updated.";
-  renderOrders();
-});
+    const orders = [order, ...getOrders()];
+    saveOrders(orders);
+    orderForm.reset();
 
-ownerOpen.addEventListener("click", openOwnerPanel);
-ownerClose.addEventListener("click", closeOwnerPanel);
-ownerPanel.addEventListener("click", (event) => {
-  if (event.target === ownerPanel) {
+    if (formMessage) {
+      formMessage.textContent = "Request sent! The owner dashboard has been updated.";
+    }
+
+    renderOrders();
+  });
+}
+
+ownerOpen?.addEventListener("click", openOwnerPanel);
+ownerClose?.addEventListener("click", closeOwnerPanel);
+ownerPanel?.addEventListener("click", (event) => {
+  if (event.target === ownerPanel && ownerPanel.classList.contains("open")) {
     closeOwnerPanel();
   }
 });
 
-ownerUnlock.addEventListener("click", () => {
-  if (ownerCode.value === OWNER_CODE) {
-    ownerLogin.classList.add("hidden");
-    dashboard.classList.remove("hidden");
-    ownerMessage.textContent = "";
+ownerUnlock?.addEventListener("click", () => {
+  if (ownerCode?.value === OWNER_CODE) {
+    ownerLogin?.classList.add("hidden");
+    dashboard?.classList.remove("hidden");
+
+    if (ownerMessage) {
+      ownerMessage.textContent = "";
+    }
+
     renderOrders();
-  } else {
+  } else if (ownerMessage) {
     ownerMessage.textContent = "Incorrect owner code. Try owner123 for this demo.";
   }
 });
 
-clearOrders.addEventListener("click", () => {
+clearOrders?.addEventListener("click", () => {
   saveOrders([]);
   renderOrders();
 });
